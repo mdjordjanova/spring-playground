@@ -4,8 +4,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.redis.core.index.Indexed;
 
+import java.io.Serializable;
+
 @RedisHash(value = "author")
-public class Author {
+public class Author implements Serializable {
 
     @Id private String id;
 

@@ -4,10 +4,11 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.redis.core.index.Indexed;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 @RedisHash(value = "review")
-public class Review {
+public class Review implements Serializable {
 
     @Id
     private String id;
