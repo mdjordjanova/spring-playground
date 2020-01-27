@@ -3,6 +3,7 @@ package com.demo.config;
 import com.demo.model.Author;
 import com.demo.model.Book;
 import com.demo.model.Review;
+import com.demo.model.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.context.annotation.Bean;
@@ -48,6 +49,14 @@ public class RedisConfiguration extends CachingConfigurerSupport {
     @Bean
     public RedisTemplate<String, Book> bookRedisTemplate() {
         RedisTemplate<String, Book> template = new RedisTemplate<>();
+        template.setConnectionFactory(jedisConnectionFactory());
+        template.setKeySerializer(new StringRedisSerializer());
+        return template;
+    }
+
+    @Bean
+    public RedisTemplate<String, User> userRedisTemplate() {
+        RedisTemplate<String, User> template = new RedisTemplate<>();
         template.setConnectionFactory(jedisConnectionFactory());
         template.setKeySerializer(new StringRedisSerializer());
         return template;
