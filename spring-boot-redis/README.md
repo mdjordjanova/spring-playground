@@ -124,7 +124,7 @@ public class Book {
     private String id;
 
     @Indexed private String title;
-    @Indexed private Author author;
+    @Indexed private String authorId;
     @Indexed private Date publishDate;
     @Indexed private String type;
     @Indexed private int numOfPages;
