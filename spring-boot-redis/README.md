@@ -1,5 +1,13 @@
 ## Spring Boot and Redis
 
+To build and run the application: 
+
+`./gradlew clean build`
+
+`docker-compose build`
+
+`docker-compose up`
+
 #### Enable Redis repositories and configure connection
 
 ```
