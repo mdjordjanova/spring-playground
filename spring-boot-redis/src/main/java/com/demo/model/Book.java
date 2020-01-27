@@ -13,7 +13,7 @@ public class Book implements Serializable {
     @Id private String id;
 
     @Indexed private String title;
-    @Indexed private Author author;
+    @Indexed private String authorId;
     @Indexed private Date publishDate;
     @Indexed private String type;
     @Indexed private int numOfPages;
@@ -37,12 +37,12 @@ public class Book implements Serializable {
         this.title = title;
     }
 
-    public Author getAuthor() {
-        return author;
+    public String getAuthorId() {
+        return authorId;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setAuthorId(String authorId) {
+        this.authorId = authorId;
     }
 
     public Date getPublishDate() {
