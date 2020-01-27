@@ -73,6 +73,29 @@ public class ReviewService {
 }
 ```
 
+#### Create REST Controllers
+
+```
+@RestController
+public class ReviewController {
+
+    @Autowired
+    private ReviewService reviewService;
+
+    @PutMapping(value = "/reviews")
+    public ResponseEntity<Review> add(@RequestBody Review review) {
+        reviewService.save(review);
+        return new ResponseEntity<>(review, HttpStatus.CREATED);
+    }
+
+    @GetMapping(value = "/reviews")
+    public ResponseEntity<List<Review>> getAll() {
+        List<Review> reviewsList = reviewService.findAll();
+        return new ResponseEntity<>(reviewsList, HttpStatus.OK);
+    }
+}
+```
+
 #### Create domain entities
 
 ```
